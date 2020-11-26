@@ -16,14 +16,13 @@ jobs:
       uses: actions/setup-node@master
     - run: npm install
     - run: npm run build
-    - run: tar -zcvf release.tgz dist
     # 部署到服务器
     - name: Deploy
-      uses: appleboy/scp-action@master
+      uses: cross-the-world/ssh-scp-ssh-pipelines@latest
       with:
         host: ${{ secrets.HOST }}
-        username: ${{ secrets.USERNAME }}
-        password: ${{ secrets.PASSWORD }}
+        user: ${{ secrets.USERNAME }}
+        pass: ${{ secrets.PASSWORD }}
         port: ${{ secrets.PORT }}
-        source: "release.tgz"
-        target: "/usr/local/nginx/qiankun_apps"
+        scp: |
+          './dist/*' => /usr/local/nginx/qiankun_apps/main_app
