@@ -1,5 +1,6 @@
 <template>
-   <div class="layout-wrapper">
+  <layout :loading="loading"></layout>
+   <!-- <div class="layout-wrapper">
     <div class="layout-header">
       <div class="logo">QIANKUN</div>
       <ul class="sub-apps">
@@ -10,14 +11,18 @@
       <h4 v-if="loading" class="subapp-loading">Loading...</h4>
       <div id="subapp-viewport"></div>
     </div>
-  </div>
+  </div> -->
 </template>
 
 <script>
+import Layout from '@/layout/index.vue'
 import microApps from './micro-apps'
 
 export default {
   name: 'App',
+  components: {
+    Layout
+  },
   data() {
     return {
       loading: true,

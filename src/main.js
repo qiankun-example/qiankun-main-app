@@ -1,11 +1,16 @@
 import Vue from 'vue'
 import App from './App.vue'
+import ElementUI from 'element-ui'
 import { registerMicroApps, runAfterFirstMounted, setDefaultMountApp, start } from 'qiankun';
 import microApps from './micro-apps'
+import store from './store'
+import './styles/index.scss'
+Vue.use(ElementUI)
 
 // 初始化
 const instance = new Vue({
-  render: h => h(App),
+  store,
+  render: h => h(App)
 }).$mount('#app')
 
 // 切换向主应用传递加载状态
@@ -24,7 +29,6 @@ const apps = microApps.map(item => {
   }
 })
 
-console.log(apps, 'apps')
 
 registerMicroApps(
   apps,
