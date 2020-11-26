@@ -1,0 +1,29 @@
+name: build And Deploy MAIN-APP To Dev Env
+on:
+  push:
+    branchs:
+      - dev
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+     # 下载源码
+    - name: Checkout
+      uses: actions/checkout@master
+    # 打包构建
+    - name: Build
+      uses: actions/setup-node@master
+    - run: npm install
+    - run: npm run build
+    - run: tar -zcvf release.tgz dist
+    # 部署到服务器
+    - name: Deploy
+      uses: appleboy/scp-action@master
+      with:
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
+        password: ${{ secrets.PASSWORD }}
+        port: ${{ secrets.PORT }}
+        source: "release.tgz"
+        target: "/usr/local/nginx/qiankun_apps"
