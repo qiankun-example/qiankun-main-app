@@ -16,6 +16,7 @@ jobs:
       uses: actions/setup-node@master
     - run: npm install
     - run: npm run build
+    - run: tar -zcvf release.tgz main_app
     # 部署到服务器
     - name: Deploy
       uses: cross-the-world/ssh-scp-ssh-pipelines@latest
@@ -25,4 +26,8 @@ jobs:
         pass: ${{ secrets.PASSWORD }}
         port: ${{ secrets.PORT }}
         scp: |
-          './dist/*' => /usr/local/nginx/qiankun_apps/main_app
+          './release.tgz' => /usr/local/nginx/qiankun_apps
+        last_ssh: |
+          cd /usr/local/nginx/qiankun_apps
+          tar zxvf release.tgz
+          rm -rf release.tgz
