@@ -6,8 +6,11 @@ import microApps from './micro-apps'
 import store from './store'
 import './styles/index.scss'
 Vue.use(ElementUI)
-
-// 初始化
+// 0. 校验登陆信息
+if(!window.localStorage.getItem('user')) {
+  window.location.replace('/login')
+}
+// 1. 初始化
 const instance = new Vue({
   store,
   render: h => h(App)
