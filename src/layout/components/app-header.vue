@@ -49,9 +49,7 @@ export default Vue.extend({
         type: 'warning'
       }).then(() => {
         this.$store.commit('setUser', null)
-        this.$router.push({
-          name: 'login'
-        })
+        window.location.replace(`/login`)
       })
     }
   }
