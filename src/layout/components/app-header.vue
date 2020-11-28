@@ -20,7 +20,7 @@
 <script>
 import Vue from 'vue'
 // import AppBreadcrumb from './app-breadcrumb.vue'
-// import { getInfo } from '@/services/user'
+import { getInfo } from '@/services/user'
 export default Vue.extend({
   name: 'AppHeader',
   // components: {
@@ -32,15 +32,15 @@ export default Vue.extend({
     }
   },
   created () {
-    // this.loadUserInfo()
+    this.loadUserInfo()
   },
   methods: {
     toggleCollapse () {
       this.$store.commit('setIsCollapse', !this.$store.state.isCollapse)
     },
     async loadUserInfo () {
-      // const { data } = await getInfo()
-      // this.userInfo = data.content
+      const { data } = await getInfo()
+      this.userInfo = data.content
     },
     handleLogout () {
       this.$confirm('确认退出吗？', '退出提示', {
