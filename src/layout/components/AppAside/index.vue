@@ -38,10 +38,7 @@ export default {
   },
   methods: {
     selectMenu(index) {
-      routerGo(index, 'premission', {});
-    },
-    goto(title, href) {
-      routerGo(href, 'premission');
+      routerGo(index, 'premission');
     }
   }
 }

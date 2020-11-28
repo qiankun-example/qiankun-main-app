@@ -15,6 +15,10 @@ export default new Vuex.Store({
     setIsCollapse(state, payload) {
       state.isCollapse = payload
       window.localStorage.setItem('isCollapse', payload)
+    },
+    setUser(state, payload) {
+      state.user = JSON.parse(payload)
+      window.localStorage.setItem('user', payload)
     }
   },
   actions: {

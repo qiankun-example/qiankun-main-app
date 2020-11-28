@@ -1,5 +1,5 @@
 <template>
-  <layout :loading="loading"></layout>
+  <layout></layout>
 </template>
 
 <script>
@@ -14,7 +14,7 @@ export default {
   },
   data() {
     return {
-      loading: true,
+      loading: false,
       microApps,
     }
   },
