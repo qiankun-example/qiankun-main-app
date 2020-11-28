@@ -8,7 +8,7 @@ import request from '@/utils/request'
     module: "subapp-ui",
     defaultRegister: true,
     devEntry: "//localhost:8001",
-    depEntry: "//119.45.51.253/main/qiankun-vue2-subapp/",
+    depEntry: "//119.45.51.253/main/permission/",
     routerBase: "/ui",
     children: [
       {

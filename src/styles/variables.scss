@@ -6,15 +6,17 @@ $info-color: #868e96;
 
 $body-bg: #e9eef3;
 
-$sidebar-bg: #f8f9fb;
 $navbar-bg: #f8f9fb;
 
 $font-family: system-ui, -apple-system, "Segoe UI";
 
 $sidebar-width: 200;
+$sidebar-bg: #1f2d3d;
+$menu-bg: #304156;
+$menu-bg-hover: #263445;
+$submenu-bg: #1f2d3d;
+$submenu-bg-hover: #001528;
 
-// the :export directive is the magic sauce for webpack
-// https://www.bluematador.com/blog/how-to-share-variables-between-js-and-sass
-:export {
-  sidebarWidth:$sidebar-width;
-}
+$menu-text:#bfcbd9;
+$menu-text-active:#409EFF;
+$subMenu-text-active:#f4f4f5;

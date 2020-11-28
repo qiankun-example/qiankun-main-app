@@ -1,0 +1,13 @@
+@import './variables.scss';
+
+:export {
+  sidebarWidth: $sidebar-width;
+  sidebarBg: $sidebar-bg;
+  menuBg: $menu-bg;
+  menuBgHover: $menu-bg-hover;
+  submenuBg: $submenu-bg;
+  submenuBgHover: $submenu-bg-hover;
+  menuText: $menu-text;
+  menuTextActive: $menu-text-active;
+  submenuTextActive: $subMenu-text-active;
+}

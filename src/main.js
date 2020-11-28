@@ -57,7 +57,7 @@ registerMicroApps(
 /**
  * Step3 设置默认进入的子应用
  */
-setDefaultMountApp('/qiankun-vue2-subapp');
+setDefaultMountApp('/permission');
 
 /**
  * Step4 启动应用

@@ -1,20 +1,9 @@
 <template>
   <layout :loading="loading"></layout>
-   <!-- <div class="layout-wrapper">
-    <div class="layout-header">
-      <div class="logo">QIANKUN</div>
-      <ul class="sub-apps">
-        <li v-for="item in microApps" :key="item.name" @click="goto(item)">{{ item.name }}</li>
-      </ul>
-    </div>
-    <div id="subapp-container">
-      <h4 v-if="loading" class="subapp-loading">Loading...</h4>
-      <div id="subapp-viewport"></div>
-    </div>
-  </div> -->
 </template>
 
 <script>
+import Nprogress from 'nprogress'
 import Layout from '@/layout/index.vue'
 import microApps from './micro-apps'
 
@@ -27,6 +16,17 @@ export default {
     return {
       loading: true,
       microApps,
+    }
+  },
+  watch: {
+    loading(val) {
+      if(val) {
+        Nprogress.start()
+      } else {
+        this.$nextTick(() => {
+          Nprogress.done()
+        })
+      }
     }
   },
   methods: {
