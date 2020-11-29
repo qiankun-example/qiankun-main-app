@@ -21,6 +21,7 @@
       :text-color="variables.menuText"
       :active-text-color="variables.menuTextActive"
       :collapse-transition="false"
+      :default-active="currentUrl"
     >
       <app-aside-item
         v-for="route in permission_routes"
@@ -44,6 +45,7 @@ export default {
   data() {
     return {
       variables,
+      currentUrl: '/permission/role'
     };
   },
   computed: {
@@ -53,7 +55,15 @@ export default {
     selectMenu(index) {
       routerGo(index, "premission");
     },
+    bindCurrent () {
+      const path = window.location.pathname
+      this.currentUrl = path
+    }
   },
+  created () {
+    // 初始化当前路由
+    this.bindCurrent()
+  }
 };
 </script>
 <style lang="scss" scoped>

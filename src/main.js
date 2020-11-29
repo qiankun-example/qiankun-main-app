@@ -4,6 +4,7 @@ import ElementUI from 'element-ui'
 import { registerMicroApps, runAfterFirstMounted, setDefaultMountApp, start } from 'qiankun';
 import microApps from './micro-apps'
 import store from './store'
+import 'nprogress/nprogress.css'
 import './styles/index.scss'
 Vue.use(ElementUI)
 // 0. 校验登陆信息
